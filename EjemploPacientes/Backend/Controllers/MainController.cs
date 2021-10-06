@@ -16,11 +16,10 @@ namespace Backend.Controllers
         Patient fernando = new Patient()
         {
             name = "Fernando Rodríguez",
-            documentNumber = "254833995",
-            birthdate = new DateTime(),
-            documentType = "1",
-            email = "fernando@gmail.com",
-            phoneNumber = "3006009000"
+            city = "Medellín",
+            gender = "Maculino",
+            documentType = "Cédula de ciudadanía",
+            documentNumber = "1007291334",
         };
         public MainController()
         {
@@ -42,9 +41,11 @@ namespace Backend.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Patient patient)
         {
+            patients.Add(patient);
         }
+
 
         // PUT api/<controller>/5
         public void Put(int id, [FromBody] string value)

@@ -7,13 +7,23 @@
             <tr>
                 <th>Nombre</th>
                 <th>Documento</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody data-bind="foreach: patients">
             <tr>
                 <td data-bind="text: name"></td>
                 <td data-bind="text: documentNumber"></td>
+                <td>
+                    <button type="button" class="btn btn-info">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
             </tr>
+
         </tbody>
     </table>
     <script type="text/javascript" src="js/patientList.js"></script>
