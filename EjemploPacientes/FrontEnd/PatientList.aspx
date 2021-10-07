@@ -6,14 +6,20 @@
         <thead>
             <tr>
                 <th>Nombre</th>
+                <th>Tipo de documento</th>
                 <th>Documento</th>
+                <th>Género</th>
+                <th>Ciudad</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody data-bind="foreach: patients">
             <tr>
                 <td data-bind="text: name"></td>
+                <td data-bind="text: documentType"></td>
                 <td data-bind="text: documentNumber"></td>
+                <td data-bind="text: gender"></td>
+                <td data-bind="text: city"></td>
                 <td>
                     <button type="button" class="btn btn-info">
                         <span class="glyphicon glyphicon-edit"></span>

@@ -1,4 +1,5 @@
-﻿using Backend.Models;
+﻿using Backend.Infrastructure;
+using Backend.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,38 +13,37 @@ namespace Backend.Controllers
     [EnableCors(origins:"*", headers:"*", methods:"*")]
     public class MainController : ApiController
     {
-        List<Patient> patients = new List<Patient>();
-        Patient fernando = new Patient()
-        {
-            name = "Fernando Rodríguez",
-            city = "Medellín",
-            gender = "Maculino",
-            documentType = "Cédula de ciudadanía",
-            documentNumber = "1007291334",
-        };
+        Repository repository;
+        
         public MainController()
         {
-            
-        }
-        public IEnumerable<Patient> Get()
-        {
-            if (patients.Count() == 0)
+            if (repository == null)
             {
-                patients.Add(fernando);
+                repository = new Repository();
             }
-            return patients;
+        }
+        public List<Patient> Get()
+        {
+            if (repository.GetAllPatients().Count() == 0)
+            {
+                Patient fernando = new Patient()
+                {
+                    name = "Fernando Rodríguez",
+                    city = "Medellín",
+                    gender = "1",
+                    documentType = "1",
+                    documentNumber = "1007291334",
+                };
+                repository.Create(fernando);
+            }
+            return repository.GetAllPatients();
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/<controller>
         public void Post([FromBody] Patient patient)
         {
-            patients.Add(patient);
+            repository.Create(patient);
         }
 
 
