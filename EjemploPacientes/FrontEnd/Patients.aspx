@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3 ">
             <label for="tipoDoc" class="form-label">Tipo de documento</label>
-            <select data-bind="options: documentTypes, value: selectDoc, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Seleccione...'" class="form-control" name="tipoDoc" id="tipoDoc"></select>
+            <select data-bind="options: documentTypes, value: newPatient.documentType, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Seleccione...'" class="form-control" name="tipoDoc" id="tipoDoc"></select>
         </div>
         <div class="mb-3">
             <label for="document" class="form-label">Documento</label>

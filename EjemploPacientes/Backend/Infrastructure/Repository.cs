@@ -46,7 +46,7 @@ namespace Backend.Infrastructure
                 documentType1.name = "Tarjeta de identidad";
                 var documentType2 = new DocumentType();
                 documentType2.id = "2";
-                documentType2.name = "Femenino";
+                documentType2.name = "Cédula de ciudadanía";
                 documentTypes.Add(documentType1);
                 documentTypes.Add(documentType2);
             }

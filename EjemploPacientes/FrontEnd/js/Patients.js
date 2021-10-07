@@ -41,6 +41,7 @@
     }
 
     self.createPatient = function () {
+        console.log(self.selectDoc());
         console.log(self.newPatient);
         var patient = ko.toJS(self.newPatient);
         console.log(patient);
@@ -50,7 +51,7 @@
             type: "POST",
             url: `${url}api/Main`,
             datatype: 'application/json',
-            data: {},
+            data: patient,
             success: function () {
 
             }
