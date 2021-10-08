@@ -13,11 +13,11 @@
         </div>
         <div class="mb-3 ">
             <label for="gender" class="form-label">Género</label>
-            <select data-bind="options: genders, value: selectGender, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Seleccione...'" class="form-control" name="gender" id="gender" ></select>
+            <select data-bind="options: genders, value: newPatient.gender, optionsText: 'name', optionsValue: 'name', optionsCaption: 'Seleccione...'" class="form-control" name="gender" id="gender" ></select>
         </div>
         <div class="mb-3 ">
             <label for="tipoDoc" class="form-label">Tipo de documento</label>
-            <select data-bind="options: documentTypes, value: newPatient.documentType, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Seleccione...'" class="form-control" name="tipoDoc" id="tipoDoc"></select>
+            <select data-bind="options: documentTypes, value: newPatient.documentType, optionsText: 'name', optionsValue: 'name', optionsCaption: 'Seleccione...'" class="form-control" name="tipoDoc" id="tipoDoc"></select>
         </div>
         <div class="mb-3">
             <label for="document" class="form-label">Documento</label>
