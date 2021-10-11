@@ -58,9 +58,6 @@
         });
 
     };
-
-
-    
 }
 
 var vm = new Model;
