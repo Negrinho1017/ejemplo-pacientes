@@ -5,5 +5,5 @@
         'success'
     )
 
-    location.reload();
+    /*location.reload();*/
 });

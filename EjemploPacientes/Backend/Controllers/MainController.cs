@@ -48,8 +48,9 @@ namespace Backend.Controllers
 
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Patient patient)
         {
+            
         }
 
         // DELETE api/<controller>/5

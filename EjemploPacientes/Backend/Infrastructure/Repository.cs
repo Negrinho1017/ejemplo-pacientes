@@ -11,6 +11,7 @@ namespace Backend.Infrastructure
         private static List<Patient> patients = new List<Patient>();
         private static List<Gender> genders = new List<Gender>();
         private static List<DocumentType> documentTypes = new List<DocumentType>();
+        
         public void Create(Patient patient)
         {
             patients.Add(patient);

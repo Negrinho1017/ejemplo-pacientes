@@ -38,6 +38,20 @@
                 window.alert("Error");
             }
         });
+
+        $.ajax({
+            url: `${url}api/Main`,
+            type: "GET",
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            datatype: 'application/json',
+            success: function (data) {
+                ko.mapping.fromJS(data, self.patients);
+                console.log(data);
+            },
+            error: function (msg) {
+                window.alert("Error");
+            }
+        });
     }
 
     self.createPatient = function () {

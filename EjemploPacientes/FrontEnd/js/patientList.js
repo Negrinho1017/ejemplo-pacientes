@@ -19,25 +19,17 @@
     });
 
     //$.ajax({
-    //    type: 'PUT',
-    //    dataType: 'json',
-    //    url: `${url}api/Main`,
-    //    data: ko.toJSON(self.Membership()),
-    //    contentType: 'application/json; charset=utf-8'
+    //    type: 'put',
+    //    datatype: 'json',
+    //    url: `${url}api/main`,
+    //    data: ko.tojson(self.membership()),
+    //    contenttype: 'application/json; charset=utf-8'
     //}).done(function (data) {
     //    location.hash = '/user';
     //});
 
-    //var url = "https://localhost:44374/"
-    //$.ajax({
-    //    type: "POST",
-    //    url: `${url}api/Main`,
-    //    datatype: 'application/json',
-    //    data: patient,
-    //    success: function () {
 
-    //    }
-    //});
+
 
 }
 
