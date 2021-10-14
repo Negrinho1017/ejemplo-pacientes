@@ -1,4 +1,4 @@
-﻿var Model = function (){
+﻿var Model = function () {
     var self = this;
     var url = "https://localhost:44374/"
     self.patients = ko.mapping.fromJS([]);
@@ -17,19 +17,6 @@
             window.alert("Error");
         }
     });
-
-    //$.ajax({
-    //    type: 'put',
-    //    datatype: 'json',
-    //    url: `${url}api/main`,
-    //    data: ko.tojson(self.membership()),
-    //    contenttype: 'application/json; charset=utf-8'
-    //}).done(function (data) {
-    //    location.hash = '/user';
-    //});
-
-
-
 
 }
 

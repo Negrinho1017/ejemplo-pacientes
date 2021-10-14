@@ -21,6 +21,7 @@ namespace Backend.Controllers
                 repository = new Repository();
             }
         }
+    }
         public class EditController1 : ApiController
     {
         // GET api/<controller>

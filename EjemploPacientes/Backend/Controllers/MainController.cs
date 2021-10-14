@@ -39,6 +39,13 @@ namespace Backend.Controllers
             return repository.GetAllPatients();
         }
 
+        public Patient Get(string documentNumber)
+        {
+            var Patient = new Patient();
+
+            return repository.GetPatientByDocumentNumber(documentNumber);
+
+        }
 
         // POST api/<controller>
         public void Post([FromBody] Patient patient)
@@ -48,7 +55,7 @@ namespace Backend.Controllers
 
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody] Patient patient)
+        public void Put([FromBody] Patient patient)
         {
             
         }

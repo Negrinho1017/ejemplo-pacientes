@@ -3,12 +3,15 @@
     var url = "https://localhost:44374/"
     self.patients = ko.mapping.fromJS([]);
     self.newPatient = ko.mapping.fromJS({
-        name: '', city: '', gender: '', documentType: '', documentNumber: ''});
+        name: '', city: '', gender: '', documentType: '', documentNumber: ''
+    });
     self.selectGender = ko.observable("");
     self.genders = ko.mapping.fromJS([]);
 
     self.selectDoc = ko.observable("");
     self.documentTypes = ko.mapping.fromJS([]);
+
+    self.patientSelected = ko.observable({});
 
     self.init = function () {
         $.ajax({
@@ -26,13 +29,16 @@
         });
 
         $.ajax({
-            url: `${url}api/DocumentType`,
+            url: `${url}api/Main`,
             type: "GET",
+            data: { documentNumber: '1234' },
             headers: { 'Access-Control-Allow-Origin': '*' },
             datatype: 'application/json',
             success: function (data) {
-                ko.mapping.fromJS(data, self.documentTypes);
-                console.log(data);
+                /* ko.mapping.fromJS(data, self.patientSelected);*/
+                self.patientSelected(data)
+                console.log('Documento', data);
+                console.log(self.patientSelected);
             },
             error: function (msg) {
                 window.alert("Error");
@@ -71,7 +77,9 @@
             }
         });
 
-    };
+        };
+
+
 }
 
 var vm = new Model;

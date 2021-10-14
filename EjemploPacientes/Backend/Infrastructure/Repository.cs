@@ -17,6 +17,21 @@ namespace Backend.Infrastructure
             patients.Add(patient);
         }
 
+        public Patient GetPatientByDocumentNumber(string documentNumber)
+        {
+            var Patient = new Patient();
+            Patient result=patients.Find(element => element.documentNumber == documentNumber);
+            return result;
+
+        }
+
+        public void Update(Patient patient)
+        {
+            int result = patients.IndexOf(patient);
+            patients.RemoveAt(result);
+            patients.Add(patient);
+        }
+
         public List<Patient> GetAllPatients()
         {
             return patients;
