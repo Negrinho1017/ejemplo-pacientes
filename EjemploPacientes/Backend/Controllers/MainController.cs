@@ -57,7 +57,7 @@ namespace Backend.Controllers
         // PUT api/<controller>/5
         public void Put([FromBody] Patient patient)
         {
-            
+            repository.Update(patient);
         }
 
         // DELETE api/<controller>/5

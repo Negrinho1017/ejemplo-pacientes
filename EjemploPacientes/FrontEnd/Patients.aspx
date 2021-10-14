@@ -5,7 +5,7 @@
     <formview method="POST" id="patients" data-bind="">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" id="name" aria-describedby="namePat" data-bind='value: patientSelected.name'>
+            <input type="text" class="form-control" id="name" aria-describedby="namePat" data-bind='value: newPatient.name'>
         </div>
         <div class="mb-3">
             <label for="city" class="form-label">Ciudad</label>

@@ -29,16 +29,30 @@
         });
 
         $.ajax({
+            url: `${url}api/DocumentType`,
+            type: "GET",
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            datatype: 'application/json',
+            success: function (data) {
+                ko.mapping.fromJS(data, self.documentTypes);
+                console.log(data);
+            },
+            error: function (msg) {
+                window.alert("Error");
+            }
+        });
+
+        $.ajax({
             url: `${url}api/Main`,
             type: "GET",
-            data: { documentNumber: '1234' },
+            data: { documentNumber: '1007291334' },
             headers: { 'Access-Control-Allow-Origin': '*' },
             datatype: 'application/json',
             success: function (data) {
                 /* ko.mapping.fromJS(data, self.patientSelected);*/
                 self.patientSelected(data)
                 console.log('Documento', data);
-                console.log(self.patientSelected);
+                /*console.log(self.patientSelected);*/
             },
             error: function (msg) {
                 window.alert("Error");
