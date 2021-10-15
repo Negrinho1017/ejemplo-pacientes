@@ -1,6 +1,6 @@
 ﻿$("#btn-enviar").click(function () {
     swal.fire(
-        'bien hecho!',
+        'Bien hecho!',
         'paciente creado con éxito!',
         'success'
     )

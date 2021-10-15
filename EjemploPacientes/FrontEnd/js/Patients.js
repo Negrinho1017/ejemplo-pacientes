@@ -11,8 +11,6 @@
     self.selectDoc = ko.observable("");
     self.documentTypes = ko.mapping.fromJS([]);
 
-    self.patientSelected = ko.observable({});
-
     self.init = function () {
         $.ajax({
             url: `${url}api/Gender`,
@@ -42,30 +40,17 @@
             }
         });
 
-        $.ajax({
-            url: `${url}api/Main`,
-            type: "GET",
-            data: { documentNumber: '1007291334' },
-            headers: { 'Access-Control-Allow-Origin': '*' },
-            datatype: 'application/json',
-            success: function (data) {
-                /* ko.mapping.fromJS(data, self.patientSelected);*/
-                self.patientSelected(data)
-                console.log('Documento', data);
-                /*console.log(self.patientSelected);*/
-            },
-            error: function (msg) {
-                window.alert("Error");
-            }
-        });
+        //const Document = getParameter('documentNumber');
+        //console.log(DocumentNumber);
 
         $.ajax({
             url: `${url}api/Main`,
             type: "GET",
             headers: { 'Access-Control-Allow-Origin': '*' },
+            data: { documentNumber: '1007291334' },
             datatype: 'application/json',
             success: function (data) {
-                ko.mapping.fromJS(data, self.patients);
+                ko.mapping.fromJS(data, self.newPatient);
                 console.log(data);
             },
             error: function (msg) {
@@ -81,21 +66,37 @@
         console.log(patient);
 
         var url = "https://localhost:44374/"
-        $.ajax({
-            type: "POST",
-            url: `${url}api/Main`,
-            datatype: 'application/json',
-            data: patient,
-            success: function () {
+        var documentNumber = getParameterByName('documentNumber');
+        console.log(documentNumber);
+        if (documentNumber === undefined || documentNumber === null || documentNumber === '') {
 
-            }
-        });
+            $.ajax({
+                type: "POST",
+                url: `${url}api/Main`,
+                datatype: 'application/json',
+                data: patient,
+                success: function () {
 
-        };
+                }
+            });
 
+        } else {
+            $.ajax({
+                type: "PUT",
+                url: `${url}api/Main`,
+                datatype: 'application/json',
+                data: patient,
+                success: function () {
+
+                }
+            });
+        }
+
+
+    }
 
 }
 
 var vm = new Model;
 vm.init();
-ko.applyBindings(vm);
+    ko.applyBindings(vm);

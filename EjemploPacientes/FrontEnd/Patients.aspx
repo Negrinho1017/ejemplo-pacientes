@@ -23,10 +23,12 @@
             <label for="document" class="form-label">Documento</label>
             <input type="number" class="form-control" name="document" id="document" aria-describedby="docPat" data-bind='value: newPatient.documentNumber'>
         </div>
-        <input type="button" class="btn btn-primary" id="btn-enviar" value="Enviar" data-bind='click: $root.createPatient' />
+        <input type="button" class="btn btn-primary" id="btn-enviar" value="Guardar" data-bind='click: $root.createPatient' />
     </formview>
     <script type="text/javascript" src="js/Patients.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="js/SweetAlert.js"></script>
+    <script type="text/javascript" src="js/Edit.js"></script>
+   
 </asp:Content>
 

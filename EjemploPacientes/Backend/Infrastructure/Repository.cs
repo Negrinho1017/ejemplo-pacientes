@@ -13,9 +13,10 @@ namespace Backend.Infrastructure
         private static List<DocumentType> documentTypes = new List<DocumentType>();
         
         public void Create(Patient patient)
-        {
-            patients.Add(patient);
-        }
+        { 
+                patients.Add(patient);
+            }
+
 
         public Patient GetPatientByDocumentNumber(string documentNumber)
         {
@@ -27,9 +28,13 @@ namespace Backend.Infrastructure
 
         public void Update(Patient patient)
         {
+            var elementIndex = patients.FindIndex(element => element.documentNumber == patient.documentNumber);
+            patients[elementIndex] = patient;
+        }
+        public void Delete(Patient patient)
+        {
             int result = patients.IndexOf(patient);
             patients.RemoveAt(result);
-            patients.Add(patient);
         }
 
         public List<Patient> GetAllPatients()

@@ -30,8 +30,8 @@ namespace Backend.Controllers
                 {
                     name = "Fernando Rodríguez",
                     city = "Medellín",
-                    gender = "1",
-                    documentType = "1",
+                    gender = "Masculino",
+                    documentType = "Tarjeta de identidad",
                     documentNumber = "1007291334",
                 };
                 repository.Create(fernando);
@@ -42,7 +42,6 @@ namespace Backend.Controllers
         public Patient Get(string documentNumber)
         {
             var Patient = new Patient();
-
             return repository.GetPatientByDocumentNumber(documentNumber);
 
         }
@@ -50,10 +49,11 @@ namespace Backend.Controllers
         // POST api/<controller>
         public void Post([FromBody] Patient patient)
         {
+
             repository.Create(patient);
+
         }
-
-
+            
         // PUT api/<controller>/5
         public void Put([FromBody] Patient patient)
         {
@@ -61,8 +61,9 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        public void Delete(Patient patient)
         {
+            repository.Delete(patient);
         }
     }
 }
