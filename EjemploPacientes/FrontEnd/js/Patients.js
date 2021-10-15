@@ -40,14 +40,14 @@
             }
         });
 
-        //const Document = getParameter('documentNumber');
-        //console.log(DocumentNumber);
+        const Document = getParameter('documentNumber');
+        console.log(Document);
 
         $.ajax({
             url: `${url}api/Main`,
             type: "GET",
             headers: { 'Access-Control-Allow-Origin': '*' },
-            data: { documentNumber: '1007291334' },
+            data: { documentNumber: Document },
             datatype: 'application/json',
             success: function (data) {
                 ko.mapping.fromJS(data, self.newPatient);
@@ -91,10 +91,18 @@
                 }
             });
         }
-
-
     }
-
+}
+function getParameter(parameterName) {
+    let parameters = new URLSearchParams(window.location.search);
+    console.log(parameters);
+    return parameters.get(parameterName);
+}
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 var vm = new Model;

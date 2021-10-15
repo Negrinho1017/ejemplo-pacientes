@@ -21,10 +21,10 @@
                 <td data-bind="text: gender"></td>
                 <td data-bind="text: city"></td>
                 <td>
-                    <button type="button" class="btn btn-info" id="edit"  onclick="redirect();">
+                    <button type="button" class="btn btn-info editPatient"  data-bind="attr: { id: 'edit-' + documentNumber() }">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
-                    <button type="button" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger deletePatient" data-bind="attr: { id: 'delete-' + documentNumber() }">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </td>
@@ -33,6 +33,6 @@
         </tbody>
     </table>
     <script type="text/javascript" src="js/patientList.js"></script>
-    <script type="text/javascript" src="js/Edit.js"></script>
+
 
 </asp:Content>

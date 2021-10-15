@@ -28,7 +28,6 @@
     <script type="text/javascript" src="js/Patients.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="js/SweetAlert.js"></script>
-    <script type="text/javascript" src="js/Edit.js"></script>
    
 </asp:Content>
 
