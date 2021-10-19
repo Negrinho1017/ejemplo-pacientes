@@ -24,7 +24,8 @@
                     <button type="button" class="btn btn-info editPatient"  data-bind="attr: { id: 'edit-' + documentNumber() }">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
-                    <button type="button" class="btn btn-danger deletePatient" data-bind="attr: { id: 'delete-' + documentNumber() }">
+                    <button type="button" class="btn btn-danger deletePatient" data-bind="attr: { id: 'delete-' + documentNumber() }, click: $root.deletePatient "> 
+                        <%--data-bind="attr: { id: 'delete-' + documentNumber() }"--%>
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </td>

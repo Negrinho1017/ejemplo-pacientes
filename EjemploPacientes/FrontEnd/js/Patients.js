@@ -59,6 +59,10 @@
         });
     }
 
+    self.removePatient = function (name) {
+        self.newPatient.remove(name);
+    };
+
     self.createPatient = function () {
         console.log(self.selectDoc());
         console.log(self.newPatient);
@@ -79,6 +83,7 @@
 
                 }
             });
+
 
         } else {
             $.ajax({
@@ -107,4 +112,4 @@ function getParameterByName(name) {
 
 var vm = new Model;
 vm.init();
-    ko.applyBindings(vm);
+ko.applyBindings(vm);

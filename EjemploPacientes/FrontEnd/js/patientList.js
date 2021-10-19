@@ -2,7 +2,9 @@
     var self = this;
     var url = "https://localhost:44374/"
     self.patients = ko.mapping.fromJS([]);
-    self.genders = ko.mapping.fromJS([]);
+    self.newPatient = ko.mapping.fromJS({
+        name: '', city: '', gender: '', documentType: '', documentNumber: ''
+    });
 
     self.init = function () {
         $.ajax({
@@ -18,6 +20,7 @@
                 window.alert("Error");
             }
         });
+
     }
 
     self.redirect = function (id) {
@@ -31,9 +34,30 @@
         console.log(this.id);
     });
 
+    $(document).on('click', '.deletePatient', function () {
+        var documentNumber = this.id.replace('delete-', '');
+        self.deletePatient(documentNumber);
+        console.log(this.id);
+    });
+
+    self.deletePatient = function (id) {
+
+        $.ajax({
+            url: `${url}api/Main?documentNumber=${id}`,
+            type: "DELETE",
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            datatype: 'application/json',
+            success: function (data) {
+
+            },
+            error: function (msg) {
+                window.alert("Error");
+            }
+        });
+
+    }
 }
 
-
-var vm = new Model;
-vm.init();
-ko.applyBindings(vm);
+    var vm = new Model;
+    vm.init();
+    ko.applyBindings(vm);

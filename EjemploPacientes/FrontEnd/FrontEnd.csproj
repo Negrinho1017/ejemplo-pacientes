@@ -107,7 +107,6 @@
   <ItemGroup>
     <Content Include="js\Patients.js" />
     <Content Include="js\patientList.js" />
-    <Content Include="js\Edit.js" />
     <Content Include="js\SweetAlert.js" />
     <Content Include="knockouts\knockout-3.4.1.debug.js" />
     <Content Include="knockouts\knockout-3.4.1.js" />

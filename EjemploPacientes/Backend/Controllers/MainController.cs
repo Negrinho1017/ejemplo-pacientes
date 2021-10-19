@@ -61,9 +61,9 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(Patient patient)
+        public void Delete(string documentNumber)
         {
-            repository.Delete(patient);
+            repository.Delete(documentNumber);
         }
     }
 }

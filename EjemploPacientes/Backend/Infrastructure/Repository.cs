@@ -31,10 +31,11 @@ namespace Backend.Infrastructure
             var elementIndex = patients.FindIndex(element => element.documentNumber == patient.documentNumber);
             patients[elementIndex] = patient;
         }
-        public void Delete(Patient patient)
+        public void Delete(string documentNumber)
         {
-            int result = patients.IndexOf(patient);
-            patients.RemoveAt(result);
+            var patient = patients.Find(element => element.documentNumber == documentNumber);
+            patients.Remove(patient);
+            
         }
 
         public List<Patient> GetAllPatients()
