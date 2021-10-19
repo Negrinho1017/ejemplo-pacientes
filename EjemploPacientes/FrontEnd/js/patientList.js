@@ -26,12 +26,15 @@
     self.redirect = function (id) {
         window.location.href = "https://localhost:44332/Patients?documentNumber=" + id;
         console.log(id);
+        
     }
 
     $(document).on('click', '.editPatient', function () {
         var documentNumber = this.id.replace('edit-', '');
         self.redirect(documentNumber);
         console.log(this.id);
+        
+        
     });
 
     $(document).on('click', '.deletePatient', function () {
@@ -54,8 +57,9 @@
                 window.alert("Error");
             }
         });
-
+                location.reload();
     }
+
 }
 
     var vm = new Model;

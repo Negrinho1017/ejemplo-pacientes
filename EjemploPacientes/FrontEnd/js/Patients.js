@@ -43,6 +43,7 @@
         const Document = getParameter('documentNumber');
         console.log(Document);
 
+
         $.ajax({
             url: `${url}api/Main`,
             type: "GET",
@@ -57,11 +58,8 @@
                 window.alert("Error");
             }
         });
-    }
 
-    self.removePatient = function (name) {
-        self.newPatient.remove(name);
-    };
+    }
 
     self.createPatient = function () {
         console.log(self.selectDoc());
@@ -83,9 +81,17 @@
 
                 }
             });
+            $("#btn-enviar").after(function () {
+                swal.fire(
+                    'Bien hecho!',
+                    'Paciente creado con éxito!',
+                    'success'
+                )
+            });
 
 
         } else {
+
             $.ajax({
                 type: "PUT",
                 url: `${url}api/Main`,
@@ -95,8 +101,21 @@
 
                 }
             });
+            $("#btn-enviar").after(function () {
+                swal.fire(
+                    'ACTUALIZADO!',
+                    'Paciente actualizado con éxito!',
+                    'success'
+                )
+            });
         }
+
+        //$("#clear").after(function () {
+
+        //    location.reload();
+        //});
     }
+
 }
 function getParameter(parameterName) {
     let parameters = new URLSearchParams(window.location.search);
@@ -109,6 +128,15 @@ function getParameterByName(name) {
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
+
+
+$(document).ready(function () {
+
+    $("#clear").click(function () {
+
+        location.reload();
+    });
+});
 
 var vm = new Model;
 vm.init();
